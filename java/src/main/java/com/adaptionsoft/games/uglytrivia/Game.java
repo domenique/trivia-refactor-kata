@@ -61,7 +61,7 @@ public class Game {
 
 				systemPresenter.present(currentPlayer().getName()
 										+ "'s new location is "
-										+ places[currentPlayer]);
+										+ currentPlayer().position());
 				systemPresenter.present("The category is " + currentCategory());
 				askQuestion();
 			} else {
