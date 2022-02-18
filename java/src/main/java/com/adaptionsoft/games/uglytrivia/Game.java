@@ -6,10 +6,9 @@ import java.util.List;
 
 public class Game {
 	private final Presenter systemPresenter;
-	int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
-	private final List<Player> playerList = new ArrayList<>();
+	private final List<Player> players = new ArrayList<>();
     
     LinkedList popQuestions = new LinkedList();
     LinkedList scienceQuestions = new LinkedList();
@@ -34,17 +33,17 @@ public class Game {
 	}
 
 	public boolean add(String playerName) {
-		playerList.add(new Player(playerName));
+		players.add(new Player(playerName));
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
 
 		systemPresenter.present(playerName  + " was added");
-		systemPresenter.present("They are player number " + playerList.size());
+		systemPresenter.present("They are player number " + players.size());
 		return true;
 	}
 
 	public int howManyPlayers() {
-		return playerList.size();
+		return players.size();
 	}
 
 	public void roll(int roll) {
@@ -86,7 +85,7 @@ public class Game {
 	}
 
 	private Player currentPlayer() {
-		return playerList.get(currentPlayer);
+		return players.get(currentPlayer);
 	}
 
 	private void askQuestion() {
@@ -120,12 +119,12 @@ public class Game {
 
 				boolean winner = didPlayerWin();
 				currentPlayer++;
-				if (currentPlayer == playerList.size()) currentPlayer = 0;
+				if (currentPlayer == players.size()) currentPlayer = 0;
 				
 				return winner;
 			} else {
 				currentPlayer++;
-				if (currentPlayer == playerList.size()) currentPlayer = 0;
+				if (currentPlayer == players.size()) currentPlayer = 0;
 				return true;
 			}
 			
@@ -135,6 +134,7 @@ public class Game {
 
 			systemPresenter.present("Answer was corrent!!!!");
 			purses[currentPlayer]++;
+			currentPlayer().addCoin();
 			systemPresenter.present(currentPlayer().getName()
 									+ " now has "
 									+ purses[currentPlayer]
@@ -142,7 +142,7 @@ public class Game {
 
 			boolean winner = didPlayerWin();
 			currentPlayer++;
-			if (currentPlayer == playerList.size()) currentPlayer = 0;
+			if (currentPlayer == players.size()) currentPlayer = 0;
 			
 			return winner;
 		}
@@ -154,7 +154,7 @@ public class Game {
 		inPenaltyBox[currentPlayer] = true;
 		
 		currentPlayer++;
-		if (currentPlayer == playerList.size()) currentPlayer = 0;
+		if (currentPlayer == players.size()) currentPlayer = 0;
 		return true;
 	}
 

@@ -19,4 +19,8 @@ public class Player {
     public int position() {
         return position % 12;
     }
+
+    public void addCoin() {
+
+    }
 }
