@@ -58,17 +58,17 @@ public class Game {
 			if (roll % 2 != 0) {
 				isGettingOutOfPenaltyBox = true;
 
-				systemPresenter.present(getCurrentPlayerName() + " is getting out of the penalty box");
+				systemPresenter.present(playerList.get(currentPlayer).getName() + " is getting out of the penalty box");
 				places[currentPlayer] = places[currentPlayer] + roll;
 				if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 
-				systemPresenter.present(getCurrentPlayerName()
+				systemPresenter.present(playerList.get(currentPlayer).getName()
 										+ "'s new location is "
 										+ places[currentPlayer]);
 				systemPresenter.present("The category is " + currentCategory());
 				askQuestion();
 			} else {
-				systemPresenter.present(getCurrentPlayerName() + " is not getting out of the penalty box");
+				systemPresenter.present(playerList.get(currentPlayer).getName() + " is not getting out of the penalty box");
 				isGettingOutOfPenaltyBox = false;
 				}
 			
@@ -77,17 +77,13 @@ public class Game {
 			places[currentPlayer] = places[currentPlayer] + roll;
 			if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 
-			systemPresenter.present(getCurrentPlayerName()
+			systemPresenter.present(playerList.get(currentPlayer).getName()
 									+ "'s new location is "
 									+ places[currentPlayer]);
 			systemPresenter.present("The category is " + currentCategory());
 			askQuestion();
 		}
 		
-	}
-
-	private Object getCurrentPlayerName() {
-		return playerList.get(currentPlayer).getName();
 	}
 
 	private void askQuestion() {
@@ -114,7 +110,7 @@ public class Game {
 			if (isGettingOutOfPenaltyBox) {
 				systemPresenter.present("Answer was correct!!!!");
 				purses[currentPlayer]++;
-				systemPresenter.present(getCurrentPlayerName()
+				systemPresenter.present(playerList.get(currentPlayer).getName()
 										+ " now has "
 										+ purses[currentPlayer]
 										+ " Gold Coins.");
@@ -136,7 +132,7 @@ public class Game {
 
 			systemPresenter.present("Answer was corrent!!!!");
 			purses[currentPlayer]++;
-			systemPresenter.present(getCurrentPlayerName()
+			systemPresenter.present(playerList.get(currentPlayer).getName()
 									+ " now has "
 									+ purses[currentPlayer]
 									+ " Gold Coins.");
@@ -151,7 +147,7 @@ public class Game {
 	
 	public boolean wrongAnswer(){
 		systemPresenter.present("Question was incorrectly answered");
-		systemPresenter.present(getCurrentPlayerName() + " was sent to the penalty box");
+		systemPresenter.present(playerList.get(currentPlayer).getName() + " was sent to the penalty box");
 		inPenaltyBox[currentPlayer] = true;
 		
 		currentPlayer++;
