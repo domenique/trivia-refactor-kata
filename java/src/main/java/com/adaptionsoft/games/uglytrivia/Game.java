@@ -39,7 +39,7 @@ public class Game {
 	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
 
-		systemPresenter.present(playerName + " was added");
+		systemPresenter.present(playerName  + " was added");
 		systemPresenter.present("They are player number " + playerList.size());
 		return true;
 	}
@@ -49,24 +49,24 @@ public class Game {
 	}
 
 	public void roll(int roll) {
-		systemPresenter.present(playerList.get(currentPlayer).getName() + " is the current player");
+		systemPresenter.present(currentPlayer().getName() + " is the current player");
 		systemPresenter.present("They have rolled a " + roll);
 
 		if (inPenaltyBox[currentPlayer]) {
 			if (roll % 2 != 0) {
 				isGettingOutOfPenaltyBox = true;
 
-				systemPresenter.present(playerList.get(currentPlayer).getName() + " is getting out of the penalty box");
+				systemPresenter.present(currentPlayer().getName() + " is getting out of the penalty box");
 				places[currentPlayer] = places[currentPlayer] + roll;
 				if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 
-				systemPresenter.present(playerList.get(currentPlayer).getName()
+				systemPresenter.present(currentPlayer().getName()
 										+ "'s new location is "
 										+ places[currentPlayer]);
 				systemPresenter.present("The category is " + currentCategory());
 				askQuestion();
 			} else {
-				systemPresenter.present(playerList.get(currentPlayer).getName() + " is not getting out of the penalty box");
+				systemPresenter.present(currentPlayer().getName() + " is not getting out of the penalty box");
 				isGettingOutOfPenaltyBox = false;
 				}
 			
@@ -75,13 +75,17 @@ public class Game {
 			places[currentPlayer] = places[currentPlayer] + roll;
 			if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 
-			systemPresenter.present(playerList.get(currentPlayer).getName()
+			systemPresenter.present(currentPlayer().getName()
 									+ "'s new location is "
 									+ places[currentPlayer]);
 			systemPresenter.present("The category is " + currentCategory());
 			askQuestion();
 		}
 		
+	}
+
+	private Player currentPlayer() {
+		return playerList.get(currentPlayer);
 	}
 
 	private void askQuestion() {
@@ -108,7 +112,7 @@ public class Game {
 			if (isGettingOutOfPenaltyBox) {
 				systemPresenter.present("Answer was correct!!!!");
 				purses[currentPlayer]++;
-				systemPresenter.present(playerList.get(currentPlayer).getName()
+				systemPresenter.present(currentPlayer().getName()
 										+ " now has "
 										+ purses[currentPlayer]
 										+ " Gold Coins.");
@@ -130,7 +134,7 @@ public class Game {
 
 			systemPresenter.present("Answer was corrent!!!!");
 			purses[currentPlayer]++;
-			systemPresenter.present(playerList.get(currentPlayer).getName()
+			systemPresenter.present(currentPlayer().getName()
 									+ " now has "
 									+ purses[currentPlayer]
 									+ " Gold Coins.");
@@ -145,7 +149,7 @@ public class Game {
 	
 	public boolean wrongAnswer(){
 		systemPresenter.present("Question was incorrectly answered");
-		systemPresenter.present(playerList.get(currentPlayer).getName() + " was sent to the penalty box");
+		systemPresenter.present(currentPlayer().getName() + " was sent to the penalty box");
 		inPenaltyBox[currentPlayer] = true;
 		
 		currentPlayer++;
