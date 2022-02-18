@@ -31,10 +31,6 @@ public class Game {
 	public String createRockQuestion(int index){
 		return "Rock Question " + index;
 	}
-	
-	public boolean isPlayable() {
-		return (howManyPlayers() >= 2);
-	}
 
 	public boolean add(String playerName) {
 		
@@ -47,10 +43,6 @@ public class Game {
 		systemPresenter.present(playerName + " was added");
 		systemPresenter.present("They are player number " + players.size());
 		return true;
-	}
-
-	private void present(String v) {
-		systemPresenter.present(v);
 	}
 
 	public int howManyPlayers() {
