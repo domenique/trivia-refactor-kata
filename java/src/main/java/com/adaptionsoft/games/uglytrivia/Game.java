@@ -51,7 +51,7 @@ public class Game {
 	}
 
 	public void roll(int roll) {
-		systemPresenter.present(players.get(currentPlayer) + " is the current player");
+		systemPresenter.present(playerList.get(currentPlayer).getName() + " is the current player");
 		systemPresenter.present("They have rolled a " + roll);
 
 		if (inPenaltyBox[currentPlayer]) {

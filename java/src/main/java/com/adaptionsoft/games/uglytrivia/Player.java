@@ -1,7 +1,13 @@
 package com.adaptionsoft.games.uglytrivia;
 
 public class Player {
-    public Player(String name) {
+    private final String name;
 
+    public Player(String name) {
+        this.name = name;
+    }
+
+    public String getName() {
+        return name;
     }
 }
