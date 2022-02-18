@@ -42,12 +42,12 @@ public class Game {
 	    inPenaltyBox[howManyPlayers()] = false;
 
 		systemPresenter.present(playerName + " was added");
-		systemPresenter.present("They are player number " + players.size());
+		systemPresenter.present("They are player number " + playerList.size());
 		return true;
 	}
 
 	public int howManyPlayers() {
-		return players.size();
+		return playerList.size();
 	}
 
 	public void roll(int roll) {
@@ -117,12 +117,12 @@ public class Game {
 
 				boolean winner = didPlayerWin();
 				currentPlayer++;
-				if (currentPlayer == players.size()) currentPlayer = 0;
+				if (currentPlayer == playerList.size()) currentPlayer = 0;
 				
 				return winner;
 			} else {
 				currentPlayer++;
-				if (currentPlayer == players.size()) currentPlayer = 0;
+				if (currentPlayer == playerList.size()) currentPlayer = 0;
 				return true;
 			}
 			
@@ -139,7 +139,7 @@ public class Game {
 
 			boolean winner = didPlayerWin();
 			currentPlayer++;
-			if (currentPlayer == players.size()) currentPlayer = 0;
+			if (currentPlayer == playerList.size()) currentPlayer = 0;
 			
 			return winner;
 		}
@@ -151,7 +151,7 @@ public class Game {
 		inPenaltyBox[currentPlayer] = true;
 		
 		currentPlayer++;
-		if (currentPlayer == players.size()) currentPlayer = 0;
+		if (currentPlayer == playerList.size()) currentPlayer = 0;
 		return true;
 	}
 
