@@ -35,7 +35,6 @@ public class Game {
 	}
 
 	public boolean add(String playerName) {
-	    players.add(playerName);
 		playerList.add(new Player(playerName));
 	    places[howManyPlayers()] = 0;
 	    purses[howManyPlayers()] = 0;
