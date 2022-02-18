@@ -33,7 +33,6 @@ public class Game {
 
 	public boolean add(String playerName) {
 		players.add(new Player(playerName));
-	    inPenaltyBox[howManyPlayers()] = false;
 
 		systemPresenter.present(playerName  + " was added");
 		systemPresenter.present("They are player number " + players.size());
@@ -148,7 +147,6 @@ public class Game {
 	public boolean wrongAnswer(){
 		systemPresenter.present("Question was incorrectly answered");
 		systemPresenter.present(currentPlayer().getName() + " was sent to the penalty box");
-		inPenaltyBox[currentPlayer] = true;
 		currentPlayer().toPenaltyBox();
 		
 		currentPlayer++;
