@@ -6,7 +6,6 @@ import java.util.List;
 
 public class Game {
 	private final Presenter systemPresenter;
-    boolean[] inPenaltyBox  = new boolean[6];
 	private final List<Player> players = new ArrayList<>();
     
     LinkedList popQuestions = new LinkedList();
