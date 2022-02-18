@@ -34,7 +34,6 @@ public class Game {
 
 	public boolean add(String playerName) {
 		players.add(new Player(playerName));
-	    purses[howManyPlayers()] = 0;
 	    inPenaltyBox[howManyPlayers()] = false;
 
 		systemPresenter.present(playerName  + " was added");
@@ -112,7 +111,6 @@ public class Game {
 			if (isGettingOutOfPenaltyBox) {
 				systemPresenter.present("Answer was correct!!!!");
 				currentPlayer().addCoin();
-				purses[currentPlayer]++;
 				systemPresenter.present(currentPlayer().getName()
 										+ " now has "
 										+ currentPlayer().score()
@@ -134,7 +132,6 @@ public class Game {
 		} else {
 
 			systemPresenter.present("Answer was corrent!!!!");
-			purses[currentPlayer]++;
 			currentPlayer().addCoin();
 			systemPresenter.present(currentPlayer().getName()
 									+ " now has "
