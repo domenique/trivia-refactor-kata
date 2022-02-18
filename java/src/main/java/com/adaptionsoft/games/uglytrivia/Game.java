@@ -48,7 +48,7 @@ public class Game {
 		systemPresenter.present(currentPlayer().getName() + " is the current player");
 		systemPresenter.present("They have rolled a " + roll);
 
-		if (inPenaltyBox[currentPlayer]) {
+		if (currentPlayer().isInPenaltyBox()) {
 			if (roll % 2 != 0) {
 				isGettingOutOfPenaltyBox = true;
 
