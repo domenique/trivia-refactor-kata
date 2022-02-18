@@ -56,7 +56,7 @@ public class Game {
 				systemPresenter.present(currentPlayer().getName()
 										+ "'s new location is "
 										+ currentPlayer().position());
-				systemPresenter.present("The category is " + currentCategory());
+				systemPresenter.present("The category is " + currentCategory(currentPlayer().position()));
 				askQuestion();
 			} else {
 				systemPresenter.present(currentPlayer().getName() + " is not getting out of the penalty box");
@@ -70,7 +70,7 @@ public class Game {
 			systemPresenter.present(currentPlayer().getName()
 									+ "'s new location is "
 									+ currentPlayer().position());
-			systemPresenter.present("The category is " + currentCategory());
+			systemPresenter.present("The category is " + currentCategory(currentPlayer().position()));
 			askQuestion();
 		}
 		
@@ -85,21 +85,21 @@ public class Game {
 	}
 
 	private void askQuestion() {
-		if (currentCategory() == "Pop")
+		if (currentCategory(currentPlayer().position()) == "Pop")
 			systemPresenter.present(popQuestions.removeFirst().toString());
-		if (currentCategory() == "Science")
+		if (currentCategory(currentPlayer().position()) == "Science")
 			systemPresenter.present(scienceQuestions.removeFirst().toString());
-		if (currentCategory() == "Sports")
+		if (currentCategory(currentPlayer().position()) == "Sports")
 			systemPresenter.present(sportsQuestions.removeFirst().toString());
-		if (currentCategory() == "Rock")
+		if (currentCategory(currentPlayer().position()) == "Rock")
 			systemPresenter.present(rockQuestions.removeFirst().toString());
 	}
 	
 	
-	private String currentCategory() {
-		if (currentPlayer().position() % 4 == 0) return "Pop";
-		if (currentPlayer().position() % 4 == 1) return "Science";
-		if (currentPlayer().position() % 4 == 2) return "Sports";
+	private String currentCategory(int position) {
+		if (position % 4 == 0) return "Pop";
+		if (position % 4 == 1) return "Science";
+		if (position % 4 == 2) return "Sports";
 		return "Rock";
 	}
 
