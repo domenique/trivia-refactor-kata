@@ -75,7 +75,7 @@ public class Game {
 
 			systemPresenter.present(currentPlayer().getName()
 									+ "'s new location is "
-									+ places[currentPlayer]);
+									+ currentPlayer().position());
 			systemPresenter.present("The category is " + currentCategory());
 			askQuestion();
 		}
@@ -105,9 +105,9 @@ public class Game {
 	
 	
 	private String currentCategory() {
-		if (places[currentPlayer] % 4 == 0) return "Pop";
-		if (places[currentPlayer] % 4 == 1) return "Science";
-		if (places[currentPlayer] % 4 == 2) return "Sports";
+		if (currentPlayer().position() % 4 == 0) return "Pop";
+		if (currentPlayer().position() % 4 == 1) return "Science";
+		if (currentPlayer().position() % 4 == 2) return "Sports";
 		return "Rock";
 	}
 
