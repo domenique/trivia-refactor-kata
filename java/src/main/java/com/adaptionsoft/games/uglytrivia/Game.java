@@ -106,7 +106,7 @@ public class Game {
 	}
 
 	public boolean wasCorrectlyAnswered() {
-		if (inPenaltyBox[currentPlayer]){
+		if (currentPlayer().isInPenaltyBox()){
 			if (isGettingOutOfPenaltyBox) {
 				systemPresenter.present("Answer was correct!!!!");
 				currentPlayer().addCoin();
