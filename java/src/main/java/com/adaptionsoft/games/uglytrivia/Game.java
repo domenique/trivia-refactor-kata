@@ -115,7 +115,7 @@ public class Game {
 										+ currentPlayer().score()
 										+ " Gold Coins.");
 
-				boolean winner = didPlayerWin();
+				boolean winner = !currentPlayer().hasWon();
 				currentPlayer++;
 				if (currentPlayer == players.size()) currentPlayer = 0;
 				
@@ -137,7 +137,7 @@ public class Game {
 									+ currentPlayer().score()
 									+ " Gold Coins.");
 
-			boolean winner = didPlayerWin();
+			boolean winner = !currentPlayer().hasWon();
 			currentPlayer++;
 			if (currentPlayer == players.size()) currentPlayer = 0;
 			
@@ -155,9 +155,5 @@ public class Game {
 		return true;
 	}
 
-
-	private boolean didPlayerWin() {
-		return !currentPlayer().hasWon();
-	}
 
 }
