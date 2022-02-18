@@ -161,6 +161,6 @@ public class Game {
 
 
 	private boolean didPlayerWin() {
-		return !(purses[currentPlayer] == 6);
+		return !(currentPlayer().score() == 6);
 	}
 }
