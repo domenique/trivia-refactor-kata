@@ -6,8 +6,7 @@ import java.util.List;
 
 public class Game {
 	private final Presenter systemPresenter;
-	ArrayList players = new ArrayList();
-    int[] places = new int[6];
+	int[] places = new int[6];
     int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
 	private final List<Player> playerList = new ArrayList<>();
