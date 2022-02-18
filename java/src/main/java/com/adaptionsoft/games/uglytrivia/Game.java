@@ -115,7 +115,7 @@ public class Game {
 				purses[currentPlayer]++;
 				systemPresenter.present(currentPlayer().getName()
 										+ " now has "
-										+ purses[currentPlayer]
+										+ currentPlayer().score()
 										+ " Gold Coins.");
 
 				boolean winner = didPlayerWin();

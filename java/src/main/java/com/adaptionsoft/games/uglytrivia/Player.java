@@ -3,6 +3,7 @@ package com.adaptionsoft.games.uglytrivia;
 public class Player {
     private final String name;
     private int position;
+    private int score;
 
     public Player(String name) {
         this.name = name;
@@ -21,6 +22,10 @@ public class Player {
     }
 
     public void addCoin() {
+        score++;
+    }
 
+    public int score() {
+        return score;
     }
 }
