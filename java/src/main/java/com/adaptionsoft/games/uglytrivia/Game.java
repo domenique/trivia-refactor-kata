@@ -57,8 +57,7 @@ public class Game {
 				isGettingOutOfPenaltyBox = true;
 
 				systemPresenter.present(currentPlayer().getName() + " is getting out of the penalty box");
-				places[currentPlayer] = places[currentPlayer] + roll;
-				if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
+				movePlayer(roll);
 
 				systemPresenter.present(currentPlayer().getName()
 										+ "'s new location is "
@@ -71,9 +70,8 @@ public class Game {
 				}
 			
 		} else {
-		
-			places[currentPlayer] = places[currentPlayer] + roll;
-			if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
+
+			movePlayer(roll);
 
 			systemPresenter.present(currentPlayer().getName()
 									+ "'s new location is "
@@ -82,6 +80,12 @@ public class Game {
 			askQuestion();
 		}
 		
+	}
+
+	private void movePlayer(int roll) {
+		currentPlayer().move(roll);
+		places[currentPlayer] = places[currentPlayer] + roll;
+		if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 	}
 
 	private Player currentPlayer() {
