@@ -111,6 +111,7 @@ public class Game {
 		if (inPenaltyBox[currentPlayer]){
 			if (isGettingOutOfPenaltyBox) {
 				systemPresenter.present("Answer was correct!!!!");
+				currentPlayer().addCoin();
 				purses[currentPlayer]++;
 				systemPresenter.present(currentPlayer().getName()
 										+ " now has "
