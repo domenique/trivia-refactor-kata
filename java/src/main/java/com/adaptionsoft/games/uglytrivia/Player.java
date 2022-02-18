@@ -32,4 +32,8 @@ public class Player {
     boolean hasWon() {
         return score() == 6;
     }
+
+    public void toPenaltyBox() {
+        
+    }
 }
