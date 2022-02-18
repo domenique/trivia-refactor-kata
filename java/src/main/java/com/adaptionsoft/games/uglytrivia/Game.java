@@ -87,7 +87,7 @@ public class Game {
 	}
 
 	private Object getCurrentPlayerName() {
-		return players.get(currentPlayer);
+		return playerList.get(currentPlayer).getName();
 	}
 
 	private void askQuestion() {
