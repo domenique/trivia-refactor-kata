@@ -6,7 +6,6 @@ import java.util.List;
 
 public class Game {
 	private final Presenter systemPresenter;
-    int[] purses  = new int[6];
     boolean[] inPenaltyBox  = new boolean[6];
 	private final List<Player> players = new ArrayList<>();
     
@@ -158,6 +157,7 @@ public class Game {
 
 
 	private boolean didPlayerWin() {
-		return !(currentPlayer().score() == 6);
+		return !currentPlayer().hasWon();
 	}
+
 }

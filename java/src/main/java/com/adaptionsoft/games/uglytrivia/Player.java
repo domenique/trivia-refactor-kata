@@ -28,4 +28,8 @@ public class Player {
     public int score() {
         return score;
     }
+
+    boolean hasWon() {
+        return score() == 6;
+    }
 }
