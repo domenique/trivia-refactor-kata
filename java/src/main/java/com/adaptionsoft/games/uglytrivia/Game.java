@@ -84,8 +84,6 @@ public class Game {
 
 	private void movePlayer(int roll) {
 		currentPlayer().move(roll);
-		places[currentPlayer] = places[currentPlayer] + roll;
-		if (places[currentPlayer] > 11) places[currentPlayer] = places[currentPlayer] - 12;
 	}
 
 	private Player currentPlayer() {
